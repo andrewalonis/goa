@@ -422,7 +422,7 @@ func jsonExample(v interface{}) string {
 	r := reflect.ValueOf(v)
 	if r.Kind() == reflect.Map {
 		keys := r.MapKeys()
-		if keys[0].Kind() != reflect.String {
+		if len(keys) > 0 && keys[0].Kind() != reflect.String {
 			a := make(map[string]interface{}, len(keys))
 			var kstr string
 			for _, k := range keys {
